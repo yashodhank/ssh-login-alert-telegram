@@ -5,7 +5,8 @@
 for i in "${USERID[@]}"
 do
 URL="https://api.telegram.org/bot${KEY}/sendMessage"
-DATE="$(date "+%d %b %Y %H:%M")"
+DATE="$(date "+%d %b %Y %H:%M:%S %Z")"
+TZ=$( cat /etc/timezone )
 
 if [ -n "$SSH_CLIENT" ]; then
         CLIENT_IP=$(echo $SSH_CLIENT | awk '{print $1}')
@@ -30,7 +31,8 @@ if [ -n "$SSH_CLIENT" ]; then
         User: ${USER}
         From: *${CLIENT_IP}*
         Date: ${DATE}
-                *IP Info:*
+        Timezone: ${TZ}
+        *IP Info:*
                 ${CLIENT_IP}
                 ASN: ${IPASN}
                 City: ${IPCITY}
