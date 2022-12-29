@@ -25,4 +25,4 @@ Work on all popular linux system (Debian, Ubuntu, Arch Linux etc..)
 
 If you have many servers go check: https://github.com/MyTheValentinus/Deploy-Telegram-SSH-Alerting-with-Ansible (fork of initial @stylernico work)
 
-#### Special Thanks to @MyTheValentinus
+#### Special Thanks to https://github.com/MyTheValentinus & all the contributors.
