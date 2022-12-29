@@ -19,16 +19,26 @@ EOF
 checkJq() {
     if [[ ! -x "$(command -v jq)" ]]; then
         echo "Installing jq..."
-        apt -qqqq update && apt -y -qqqq install jq
+        apt -qqqq update && apt -y -qqqq install jq 2>/dev/null
     fi
 }
 
+checkGit() {
+    if [[ ! -x "$(command -v git)" ]]; then
+        echo "Installing git..."
+        apt -qqqq update && apt -y -qqqq install git 2>/dev/null
+    fi
+}
+
+
 ALERTSCRIPT_PATH="/opt/ssh-login-alert-telegram/alert.sh"
+
+checkGit
+
+checkJq
 
 echo "Deploying alerts..."
 add_profiled
-
-checkJq
 
 echo "Check if ZSH is installed.."
 
