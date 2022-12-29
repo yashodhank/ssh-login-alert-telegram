@@ -2,7 +2,7 @@
 
 Work on all popular linux system (Debian, Ubuntu, Arch Linux etc..)
 
-![Example](msg.png)
+![Example](mgs.png)
 
 ### Requirement
 - curl
