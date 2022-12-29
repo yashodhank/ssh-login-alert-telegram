@@ -19,7 +19,7 @@ EOF
 checkJq() {
     if [[ ! -x "$(command -v jq)" ]]; then
         echo "Installing jq..."
-        apt -yqqq install jq
+        apt -qqqq update && apt -y -qqqq install jq
     fi
 }
 
