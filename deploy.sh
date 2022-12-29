@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-add_profiled(){
+add_profiled() {
 cat <<EOF > /etc/profile.d/telegram-alert.sh
 #!/usr/bin/env bash
 # Log connections
@@ -8,7 +8,7 @@ bash $ALERTSCRIPT_PATH
 EOF
 }
 
-add_zsh () {
+add_zsh() {
 cat <<EOF >> /etc/zsh/zshrc
 
 # Log connections
@@ -16,10 +16,19 @@ bash $ALERTSCRIPT_PATH
 EOF
 }
 
+checkJq() {
+    if [[ ! -x "$(command -v jq)" ]]; then
+        echo "Installing jq..."
+        apt -yqqq install jq
+    fi
+}
+
 ALERTSCRIPT_PATH="/opt/ssh-login-alert-telegram/alert.sh"
 
 echo "Deploying alerts..."
 add_profiled
+
+checkJq
 
 echo "Check if ZSH is installed.."
 
